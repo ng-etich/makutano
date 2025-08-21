@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>makutano users</title>
+</head>
+<body>
+    <h1>Makutano users</h1>
+    <ol>
+        <% users.forEach(user =>{ %>
+            <li>
+                <h2><%= user.fullname%></h2>
+                <p><%= user.email  %></p>
+            </li>
+
+        <%}) %>
+    </ol>
+</body>
+</html>
