@@ -4,6 +4,7 @@ require("dotenv").config();
 const express = require("express");
 const mysql = require("mysql");
 const path = require("path");
+const session = require("express-session");
 
 const app = express();
 
@@ -19,6 +20,7 @@ const connection = mysql.createConnection({
 // Middleware
 app.use(express.urlencoded({ extended: true })); // parse form data
 app.use(express.json()); // parse JSON payloads
+app.use(session({secret: "djsdsd", resave: false, saveUninitialized: true}));//session manager
 
 // View engine
 app.set("view engine", "ejs");
@@ -141,6 +143,7 @@ app.post("/login", (req, res) => {
       }
 
       // login successful
+      req.session.user = results[0];//store user info in session cookie
       res.send("Login successful. Welcome " + results[0].fullname);
       // res.redirect("/users")
     }
