@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Posts</title>
+</head>
+<body>
+  <h2>Posts</h2>
+
+  <% if (posts.length > 0) { %>
+    <ul>
+      <% posts.forEach(post => { %>
+        <li>
+          <strong><%= post.fullname %></strong><br>
+          <%= post.content %><br>
+          <small>Posted on: <%= new Date(post.createdat).toLocaleString() %></small>
+        </li>
+        <hr>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>No posts available.</p>
+  <% } %>
+</body>
+</html>

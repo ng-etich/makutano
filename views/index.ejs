@@ -7,17 +7,24 @@
 </head>
 <body>
     <h1>Makutano appp</h1>
-    <% if(18>21){%>
+    <a href="/newuser">Add new user</a>
+    <a href="/register">Register client</a>
+    <a href="/login">login</a>
+    <h2>Whats on your mind</h2>
+    <form action="http://localhost:3003/newpost" method="post">
+        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+        <br>
+        <button type="submit">Post</button>
+    </form>
+    <h2>Recent posts</h2>
+    <section class="posts">
+       <% posts.forEach(function(post){ %>
+    <article>
+        <p><%= post.content %></p>
+        <p>Posted by : <%= post.postowner %><br>
+        posted on <%= post.createdat.toLocaleDateString() %></p>
+    </article>
+<% }) %>
 
-        <h2>Join this app</h2>
-        <p>This is server side rendering</p>
-    <% } else { %>
-        <h2>Tokomea!!!</h2>
-        <p>meaning the server(node)will convert this ejs to pure html before rendering /sending to browser /client</p>
-
-        
-
-    <%}%>
-    
 </body>
 </html>
